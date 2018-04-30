@@ -8,12 +8,15 @@ import {ImgurService,Imgur} from '../services/Imgur-service'
 export class ImgurComponent implements OnInit {
 
   searchTerm: String = 'cat';
+  sort: String = 'time';
+  page: String = '2';
   data: Imgur.IDatum[];
+
 
   constructor(private service: ImgurService) { }
 
   SearchGallery(): void{
-    this.service.getGalerySearch(this.searchTerm)
+    this.service.getGalerySearch(this.searchTerm,this.sort,this.page)
     .subscribe(d => this.data = d.data);
   }
 

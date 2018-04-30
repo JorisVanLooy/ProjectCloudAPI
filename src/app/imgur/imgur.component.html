@@ -1,6 +1,24 @@
-
-  <h1>
+<h1>
     Welcome to my cloud API project!
-  </h1>
-  <input [(ngModel)]="searchTerm"/>
-  <button (click)="SearchGallery()">Search</button>
+</h1>
+Search:
+<input [(ngModel)]="searchTerm"/>
+Sort:
+<select class="from-control" [(ngModel)]="sort">
+  <option value="time">time</option>
+  <option value="viral">viral</option>
+  <option value="top">top</option>
+</select>
+Page:
+<input [(ngModel)]="page"/>
+<button (click)="SearchGallery()">Search</button>
+<tbody>
+  <tr *ngFor="let item of data">
+    <tbody>
+      {{item.title}}
+      <tr *ngFor="let i of item.images">
+        <img src={{i.link}}>
+      </tr>
+    </tbody>
+  </tr>
+</tbody>
