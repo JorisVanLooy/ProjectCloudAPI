@@ -1,0 +1,10 @@
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\bin\Debug\netcoreapp2.0\restAPI.deps.json
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\bin\Debug\netcoreapp2.0\restAPI.runtimeconfig.json
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\bin\Debug\netcoreapp2.0\restAPI.runtimeconfig.dev.json
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\bin\Debug\netcoreapp2.0\restAPI.dll
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\bin\Debug\netcoreapp2.0\restAPI.pdb
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\obj\Debug\netcoreapp2.0\restAPI.csproj.CoreCompileInputs.cache
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\obj\Debug\netcoreapp2.0\restAPI.AssemblyInfoInputs.cache
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\obj\Debug\netcoreapp2.0\restAPI.AssemblyInfo.cs
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\obj\Debug\netcoreapp2.0\restAPI.dll
+C:\Users\joris\school\2018\Cloud APIs\ProjectCloudAPI\restAPI\obj\Debug\netcoreapp2.0\restAPI.pdb
