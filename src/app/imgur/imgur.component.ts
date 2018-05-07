@@ -16,6 +16,7 @@ export class ImgurComponent implements OnInit {
   constructor(private service: ImgurService) { }
 
   SearchGallery(): void{
+    this.data = null;
     this.service.getGalerySearch(this.searchTerm,this.sort,this.page)
     .subscribe(d => this.data = d.data);
   }

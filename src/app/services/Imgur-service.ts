@@ -7,11 +7,11 @@ export class ImgurService{
     constructor(private _http: HttpClient){}
     
     getGalerySearch(search,sort,page): Observable<Imgur.IGallery>{
-        return this._http.get<Imgur.IGallery>("./assets/data.json")
-  /*      return this._http.get<Imgur.IGallery>("https://api.imgur.com/3/gallery/2/search/?q=" + search+"&sort="+sort+"&page="+page,
+       // return this._http.get<Imgur.IGallery>("./assets/data.json")
+        return this._http.get<Imgur.IGallery>("https://api.imgur.com/3/gallery/search/?q=" + search+"&sort="+sort+"&page="+page,
     {
         headers: new HttpHeaders().set('Authorization','Client-ID 62bdfcd99606322')
-    }); */
+    }); 
     }
 }
 
