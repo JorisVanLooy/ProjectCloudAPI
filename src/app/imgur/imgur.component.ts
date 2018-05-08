@@ -9,7 +9,7 @@ export class ImgurComponent implements OnInit {
 
   searchTerm: String = 'cat';
   sort: String = 'time';
-  page: String = '2';
+  page: String = '1';
   data: Imgur.IDatum[];
 
 
