@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Model
 {
@@ -8,6 +9,7 @@ namespace Model
         public string Name {get; set;}
         public string Artist {get; set;}
         public int ReleaseYear {get;set;}
+        [JsonIgnore]
         public ICollection<Song> Songs {get; set;}
     }
 }

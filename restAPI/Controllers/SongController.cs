@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Model;
 
 [Route("api/song")]
@@ -17,7 +18,9 @@ public class SongController : Controller
     [HttpGet]
     public IActionResult Getsong(int id)
     {
-        var song = context.Songs.Find(id);
+        var song = context.Songs
+                    .Include(d => d.Album)
+                    .SingleOrDefault(d => d.Id == id);
         if (song == null)
             return NotFound();
 
@@ -25,9 +28,36 @@ public class SongController : Controller
     }
 
     [HttpGet]         // api/song
-    public List<Song> GetAllsongs()
+    public List<Song> GetAllsongs(string title, int? page,string sort, int length = 2,string dir = "asc")
     {
-        return context.Songs.ToList();
+        IQueryable<Song> q = context.Songs;
+
+        if(!string.IsNullOrWhiteSpace(title))
+            q = q.Where(d => d.Title == title);
+
+        if(dir == "asc")
+            q = q.OrderBy(d => d.Title);
+        else if (dir == "desc")
+            q = q.OrderByDescending(d => d.Title);
+        
+        if(page.HasValue)
+            q = q.Skip(page.Value * length);
+        q = q.Take(length);
+
+        return q.ToList();
+    }
+
+    [Route("{id}/album")]
+    [HttpGet]
+    public IActionResult GetSongAlbum(int id)
+    {
+        var album = context.Songs.Find(id)
+                    .Album;
+                    
+        if (album == null)
+            return NotFound();
+
+        return Ok(album);
     }
 
     [Route("{id}")] //api/song/2
@@ -47,7 +77,9 @@ public class SongController : Controller
     public IActionResult Createsong([FromBody] Song newsong)
     {
         
-       return NoContent();
+       context.Songs.Add(newsong);
+       context.SaveChanges();
+       return Created("", newsong);
 
     }
 

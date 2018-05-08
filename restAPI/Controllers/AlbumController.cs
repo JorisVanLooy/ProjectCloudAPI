@@ -25,10 +25,41 @@ public class AlbumController : Controller
     }
 
     [HttpGet]         // api/album
-    public List<Album> GetAllAlbums()
+    public List<Album> GetAllAlbums(int releaseYear, string name, string artist, int? page,string sort, int length = 2,string dir = "asc")
     {
-        return context.Albums.ToList();
+        IQueryable<Album> q = context.Albums;
+
+        if(releaseYear != 0)
+            q = q.Where(d => d.ReleaseYear == releaseYear);
+        if(!string.IsNullOrWhiteSpace(name))
+            q = q.Where(d => d.Name == name);
+        if(!string.IsNullOrWhiteSpace(artist))
+            q = q.Where(d => d.Artist == artist);
+
+        switch(sort)
+        {
+            case "name":
+                if(dir == "adc")
+                    q = q.OrderBy(d => d.Name);
+                else if(dir == "desc")
+                    q = q.OrderByDescending(d => d.Name);
+                break;
+            case "releaseYear":
+                if(dir == "adc")
+                    q = q.OrderBy(d => d.ReleaseYear);
+                else if(dir == "desc")
+                    q = q.OrderByDescending(d => d.ReleaseYear);
+                break;
+        }
+
+        if(page.HasValue)
+            q = q.Skip(page.Value * length);
+        q = q.Take(length);
+
+        return q.ToList();
     }
+
+    
 
     [Route("{id}")] //api/album/2
     [HttpDelete]
@@ -47,7 +78,9 @@ public class AlbumController : Controller
     public IActionResult CreateAlbum([FromBody] Album newAlbum)
     {
         
-       return NoContent();
+       context.Albums.Add(newAlbum);
+       context.SaveChanges();
+       return Created("", newAlbum);
 
     }
 
