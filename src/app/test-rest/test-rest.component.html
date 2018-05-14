@@ -1,3 +1,10 @@
-<p>
-  test-rest works!
-</p>
+<h1>
+  Welcome to my cloud API project! Test Album/Song API:
+</h1>
+<button (click)="GetAllAlbums()">Search</button>
+<button [routerLink]="['/imgur']">Test Imgur api</button>
+<div class="box box-default">
+  <code>
+      <pre>{{AlbumData |json}}</pre>
+  </code>
+</div>

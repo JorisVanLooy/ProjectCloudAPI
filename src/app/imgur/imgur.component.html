@@ -1,5 +1,5 @@
 <h1>
-    Welcome to my cloud API project!
+    Welcome to my cloud API project! Test Imgur API:
 </h1>
 Search:
 <input [(ngModel)]="searchTerm"/>
@@ -12,6 +12,7 @@ Sort:
 Page:
 <input [(ngModel)]="page"/>
 <button (click)="SearchGallery()">Search</button>
+<button [routerLink]="['/rest']">Test own rest api</button>
 <tbody>
   <tr *ngFor="let item of data">
     <tbody>

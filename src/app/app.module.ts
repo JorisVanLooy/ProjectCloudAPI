@@ -7,6 +7,7 @@ import { ImgurComponent } from './imgur/imgur.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { TestRestComponent } from './test-rest/test-rest.component';
+import {AlbumService} from './services/Album-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +20,15 @@ import { TestRestComponent } from './test-rest/test-rest.component';
     FormsModule,
     RouterModule.forRoot([
       {path: 'imgur', component: ImgurComponent},
-      {path: 'REST', component: TestRestComponent},
+      {path: 'rest', component: TestRestComponent},
       {path: '', redirectTo: 'imgur', pathMatch: 'full'},
       
       //{path: '**', component: PageNotFoundComponent}
     ], {useHash: true}),
   ],
   providers: [
-    ImgurService
+    ImgurService,
+    AlbumService
   ],
   bootstrap: [AppComponent]
 })

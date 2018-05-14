@@ -10,7 +10,6 @@ namespace Model
             //create db if not yet exists
             context.Database.EnsureCreated();
 
-            //are there alrady books present?
             if(!context.Albums.Any())
             {
                 var abMadonna = new Album()
