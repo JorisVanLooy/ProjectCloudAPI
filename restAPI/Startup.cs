@@ -30,8 +30,9 @@ namespace restAPI
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+           services.AddCors();
             services.AddMvc();
-            //services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,9 @@ namespace restAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseCors( builder =>
+             builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseMvc();
 
