@@ -11,6 +11,7 @@ export class TestRestComponent implements OnInit {
   page: number = 0;
   id : number;
   _id : number;
+  Id : number = 3;
   albumData : Album.IAlbum[];
   albumObject: Album.IAlbum;
   albumPostResponse : Album.IAlbum;
@@ -18,6 +19,12 @@ export class TestRestComponent implements OnInit {
   artist: String = "Artist name";
   releaseYear = 9999;
   postAlbum : object;
+  updateAlbum : Album.IAlbum;
+  updateResponse: Album.IAlbum;
+  Name: String = "Album name";
+  Artist: String = "Artist name";
+  ReleaseYear = 9999;
+
   constructor(private service:AlbumService) { }
 
   ngOnInit() {
@@ -50,6 +57,18 @@ export class TestRestComponent implements OnInit {
   DeleteAlbum():void{
     this.service.DeleteAlbum(this._id)
     .subscribe();
+  }
+
+  UpdateAlbum():void{
+    this.updateAlbum = {
+      id : this.Id,
+      name : this.Name,
+      artist : this.Artist,
+      releaseYear : this.ReleaseYear
+
+    }
+    this.service.UpdateAlbum(this.updateAlbum)
+    .subscribe(d => this.updateResponse = d);
   }
 
 }

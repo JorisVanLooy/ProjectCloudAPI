@@ -40,4 +40,9 @@ Id:
 <p>
   album PUT:
  </p> 
+ <input [(ngModel)]="Id"/>
+ <input [(ngModel)]="Name"/>
+ <input [(ngModel)]="ReleaseYear"/>
+ <input [(ngModel)]="Artist"/>
  <button (click)="UpdateAlbum()">Update Album</button>
+ {{updateResponse | json}}

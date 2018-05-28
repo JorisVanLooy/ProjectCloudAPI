@@ -43,8 +43,8 @@ export declare module Album{
 
     export interface IAlbum{
         id : number;
-        name : string;
-        artist : string;
+        name : String;
+        artist : String;
         releaseYear : number;
     }
 }        
