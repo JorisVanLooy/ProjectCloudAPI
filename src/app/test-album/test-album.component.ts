@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AlbumService,Album} from '../services/Album-service';
 @Component({
-  selector: 'app-test-rest',
-  templateUrl: './test-rest.component.html',
-  styleUrls: ['./test-rest.component.css']
+  selector: 'app-test-album',
+  templateUrl: './test-album.html',
+  styleUrls: ['./test-album.css']
 })
-export class TestRestComponent implements OnInit {
+export class TestAlbumComponent implements OnInit {
 
   sort: String = 'name';
   page: number = 0;

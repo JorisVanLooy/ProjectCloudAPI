@@ -12,7 +12,8 @@ Sort:
 Page:
 <input [(ngModel)]="page"/>
 <button (click)="SearchGallery()">Search</button>
-<button [routerLink]="['/rest']">Test own rest api</button>
+<button [routerLink]="['/album']">Test album gedeelte rest API</button>
+<button [routerLink]="['/song']">Test song gedeelte rest API</button>
 <tbody>
   <tr *ngFor="let item of data">
     <tbody>

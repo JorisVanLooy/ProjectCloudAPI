@@ -1,0 +1,39 @@
+<h1>
+  Welcome to my cloud API project! Test Song/Song API:
+</h1>
+<p>
+ Song GET: select sort and page or a single id
+</p>
+Sort:
+<select class="from-control" [(ngModel)]="sort">
+<option value="asc">asc</option>
+<option value="desc">desc</option>
+</select>
+Page:
+<input [(ngModel)]="page"/>
+Id: 
+<input [(ngModel)]="id"/>
+<button (click)="GetSongs()">Get Songs</button>
+<button [routerLink]="['/imgur']">Test Imgur rest api</button>
+<button [routerLink]="['/album']">Test album gedeelte rest API</button>
+<tbody>
+<tr *ngFor="let item of songData">
+  <tbody>
+   {{item | json}}
+  </tbody>
+</tr>
+{{songObject | json}}
+</tbody>
+<p>
+  Song POST:
+</p>
+<input [(ngModel)]="title"/>
+<button (click)="PostSong()">Post Song</button>
+{{SongPostResponse | json}}
+<p>
+  Song DELETE:
+</p>
+Id:
+<input [(ngModel)]="_id"/>
+<button (click)="DeleteSong()">Delete Song</button>
+<p>

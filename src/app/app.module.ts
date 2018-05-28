@@ -6,21 +6,23 @@ import {ImgurService} from './services/Imgur-service';
 import { ImgurComponent } from './imgur/imgur.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import { TestRestComponent } from './test-rest/test-rest.component';
+import { TestAlbumComponent } from './test-album/test-album.component';
 import {AlbumService} from './services/Album-service';
+import {SongService} from './services/Song-service';
 import { LoginComponent } from './login/login.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AuthService} from './services/Auth-service';
-
+import {TestSongComponent} from './test-song/test-song.component'
 @NgModule({
   declarations: [
     AppComponent,
     ImgurComponent,
-    TestRestComponent,
+    TestAlbumComponent,
     LoginComponent,
+    TestSongComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +32,11 @@ import {AuthService} from './services/Auth-service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
-      {path: 'login', component: LoginComponent},
+      //{path: 'login', component: LoginComponent},
       {path: 'imgur', component: ImgurComponent},
-      {path: 'rest', component: TestRestComponent},
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'album', component: TestAlbumComponent},
+      {path: 'song', component: TestSongComponent},
+      {path: '', redirectTo: 'imgur', pathMatch: 'full'},
       
       //{path: '**', component: PageNotFoundComponent}
     ], {useHash: true}),
@@ -41,7 +44,8 @@ import {AuthService} from './services/Auth-service';
   providers: [
     ImgurService,
     AlbumService,
-    AuthService
+    AuthService,
+    SongService
   ],
   bootstrap: [AppComponent]
 })
