@@ -16,9 +16,10 @@ export class TestSongComponent implements OnInit {
   songData : Song.ISong[];
   songObject: Song.ISong;
   songPostResponse : Song.ISong;
-  title: String = "song title";
+  title: String;
   postsong : object;
-
+  search: String;
+  searchObject : Song.ISong;
   constructor(private service:SongService) { }
 
   ngOnInit() {
@@ -35,6 +36,11 @@ export class TestSongComponent implements OnInit {
       .subscribe(d => this.songObject = d);
       this.songData = null;
     }
+  }
+
+  SearchSong():void{
+    this.service.SearchSong(this.search)
+    .subscribe(d => this.searchObject = d);
   }
 
   PostSong():void{

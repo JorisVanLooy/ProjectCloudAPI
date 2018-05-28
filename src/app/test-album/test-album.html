@@ -25,6 +25,17 @@ Id:
 {{albumObject | json}}
 </tbody>
 <p>
+  Album SEARCH
+</p>
+<select class="from-control" [(ngModel)]="search">
+  <option value="name">name</option>
+  <option value="releaseYear">releaseYear</option>
+  <option value = "artist">artist</option>
+  </select>
+  <input [(ngModel)]="searchTerm"/>
+  <button (click)="SearchAlbum()">Search Album</button>
+  {{searchObject | json}}
+<p>
   Album POST:
 </p>
 <input [(ngModel)]="name"/>

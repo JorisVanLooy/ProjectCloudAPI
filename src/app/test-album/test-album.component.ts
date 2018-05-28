@@ -14,6 +14,7 @@ export class TestAlbumComponent implements OnInit {
   Id : number = 3;
   albumData : Album.IAlbum[];
   albumObject: Album.IAlbum;
+  searchObject: Album.IAlbum;
   albumPostResponse : Album.IAlbum;
   name: String = "Album name";
   artist: String = "Artist name";
@@ -24,6 +25,8 @@ export class TestAlbumComponent implements OnInit {
   Name: String = "Album name";
   Artist: String = "Artist name";
   ReleaseYear = 9999;
+  search : String = "artist";
+  searchTerm : String;
 
   constructor(private service:AlbumService) { }
 
@@ -41,6 +44,12 @@ export class TestAlbumComponent implements OnInit {
       .subscribe(d => this.albumObject = d);
       this.albumData = null;
     }
+  }
+
+  SearchAlbum(): void{
+    this.service.SearchAlbum(this.search,this.searchTerm)
+    .subscribe(d => this.searchObject = d);
+
   }
 
   PostAlbum():void{

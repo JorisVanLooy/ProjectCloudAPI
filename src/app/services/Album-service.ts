@@ -36,6 +36,25 @@ export class AlbumService{
     UpdateAlbum(album: Album.IAlbum):Observable<Album.IAlbum>{
         return this._http.put<Album.IAlbum>(this._url,album,this.httpOptions)
     }
+
+    SearchAlbum(value: String, search: String):Observable<Album.IAlbum>{
+        var html;
+        switch (value){
+            case 'releaseYear': {
+               html = "?releaseYear=";
+            }
+            case 'name':{
+                html = "?name=";
+
+            }
+            case 'artist': {
+                html = "?artist=";
+
+            }
+        }
+        return this._http.get<Album.IAlbum>(this._url+html+search,this.httpOptions)
+        
+    }
 }
 
 

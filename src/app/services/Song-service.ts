@@ -40,6 +40,12 @@ export class SongService{
     UpdateSong(Song: Song.ISong):Observable<Song.ISong>{
         return this._http.put<Song.ISong>(this._url,Song,this.httpOptions)
     }
+    SearchSong(search: String):Observable<Song.ISong>{
+        var html;
+        html = "?title=";
+        return this._http.get<Song.ISong>(this._url+html+search,this.httpOptions)
+        
+    }
 }
 
 

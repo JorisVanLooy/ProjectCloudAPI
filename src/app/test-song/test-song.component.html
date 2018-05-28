@@ -25,8 +25,16 @@ Id:
 {{songObject | json}}
 </tbody>
 <p>
+  Song SEARCH:
+</p>
+Title: 
+<input [(ngModel)]="search"/>
+<button (click)="SearchSong()">Search Song</button>
+{{searchObject | json}}
+<p>
   Song POST:
 </p>
+Title:
 <input [(ngModel)]="title"/>
 <button (click)="PostSong()">Post Song</button>
 {{SongPostResponse | json}}
